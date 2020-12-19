@@ -1,0 +1,23 @@
+{
+  "name": "action-npm-bump-semver",
+  "version": "1.0.0",
+  "description": "GitHub action to automatically increment package.json version.",
+  "main": "src/index.js",
+  "repository": "https://github.com/codemaidenuk/action-npm-bump-semver",
+  "author": "Alexandra Hepworth <alex@nara.gg>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "ncc build src/index.js --license LICENSE",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@eturino/ts-parse-boolean": "^1.1.2",
+    "semver": "^7.3.4"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
