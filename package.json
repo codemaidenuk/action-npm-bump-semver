@@ -10,6 +10,8 @@
   "scripts": {
     "build": "ncc build src/index.js --license LICENSE",
     "lint": "eslint . --fix",
+    "lint-nofix": "eslint .",
+    "prepare": "yarn lint && yarn test",
     "test": "jest"
   },
   "jest": {
@@ -19,6 +21,7 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@eturino/ts-parse-boolean": "^1.1.2",
+    "pino": "^6.8.0",
     "semver": "^7.3.4"
   },
   "devDependencies": {

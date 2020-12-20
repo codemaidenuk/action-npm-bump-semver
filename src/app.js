@@ -1,5 +1,6 @@
 const core = require('@actions/core')
 const { parseBoolean } = require('@eturino/ts-parse-boolean')
+const logger = require('pino')()
 
 module.exports = () => {
   try {
@@ -9,6 +10,7 @@ module.exports = () => {
     }
 
     const isPreRelease = parseBoolean(preRelease)
+    logger.info(`Is Prerelease: ${isPreRelease}`)
   } catch (error) {
     core.setFailed(error.message)
   }
