@@ -1,7 +1,7 @@
-module.exports = () => {
-  const core = require('@actions/core')
-  const { parseBoolean } = require('@eturino/ts-parse-boolean')
+const core = require('@actions/core')
+const { parseBoolean } = require('@eturino/ts-parse-boolean')
 
+module.exports = () => {
   try {
     const preRelease = core.getInput('preRelease')
     if (preRelease == null) {

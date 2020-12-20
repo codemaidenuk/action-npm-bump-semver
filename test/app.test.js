@@ -4,7 +4,9 @@ const app = require('../src/app')
 jest.mock('@actions/core')
 
 describe('preRelease parameter', () => {
-  test('throws if not provided', () => {
+  it('throws if not provided', () => {
+    expect.hasAssertions()
+
     // Act
     app()
 
@@ -12,9 +14,9 @@ describe('preRelease parameter', () => {
     expect(core.setFailed).toHaveBeenCalled()
   })
 
-  test('does not throw if provided', () => {
+  it('does not throw if provided', () => {
     // Arrange
-    core.getInput = jest.fn(param => {
+    jest.spyOn(core, 'getInput').mockImplementation((param) => {
       if (param === 'preRelease') {
         return 'true'
       }
@@ -31,10 +33,10 @@ describe('preRelease parameter', () => {
 })
 
 describe('error handling', () => {
-  test('exceptions do not bubble up', () => {
+  it('exceptions do not bubble up', () => {
     // Arrange
     const core = require('@actions/core')
-    core.getInput = jest.fn(() => {
+    jest.spyOn(core, 'getInput').mockImplementation(() => {
       throw new Error('An Exception')
     })
 
