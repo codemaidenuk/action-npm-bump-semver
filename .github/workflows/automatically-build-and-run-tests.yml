@@ -1,8 +1,6 @@
-name: On Feature Branch Push
+name: Automatically build and run tests
 on:
-  push:
-    branches:
-      - feature/**
+  push
 
 jobs:
   build:
