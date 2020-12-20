@@ -11,6 +11,9 @@
     "build": "ncc build src/index.js --license LICENSE",
     "test": "jest"
   },
+  "jest": {
+    "clearMocks": true
+  },
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",

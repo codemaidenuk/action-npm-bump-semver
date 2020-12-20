@@ -1,11 +1,10 @@
+const core = require('@actions/core')
 const app = require('../src/app')
+
+jest.mock('@actions/core')
 
 describe('preRelease parameter', () => {
   test('throws if not provided', () => {
-    // Arrange
-    const core = require('@actions/core')
-    core.setFailed = jest.fn()
-
     // Act
     app()
 
@@ -15,8 +14,6 @@ describe('preRelease parameter', () => {
 
   test('does not throw if provided', () => {
     // Arrange
-    const core = require('@actions/core')
-    core.setFailed = jest.fn()
     core.getInput = jest.fn(param => {
       if (param === 'preRelease') {
         return 'true'
